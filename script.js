@@ -22,10 +22,10 @@ modeSwitch.addEventListener("click", () => {
     localStorage.setItem("theme", text ? "Mode Sombre" : "Mode Clair");
 });
 
-// Fonction qui permet de mettre à jour l'heure
-const updatetime = () => {
+// Fonction qui permet de mettre à jour l'heure des aiguilles
+const updateHorlogeAiguille = () => {
     // Crée un objet Date qui récupère l'heure actuelle
-        let date = new Date(); 
+    let date = new Date();
 
     //Recupere le nombre de secondes actuelles (valeur entre 0 et 59)
     //On divise par 60 pour obtenir une fraction du tour complet (exp: 30 s = 0.5 tours)
@@ -38,8 +38,23 @@ const updatetime = () => {
     secondHand.style.transform = `rotate(${secToDeg}deg)`;
     minuteHand.style.transform = `rotate(${minToDeg}deg)`;
     hourHand.style.transform = `rotate(${hourToDeg}deg)`;
- };
+};
 
- // Cette fonction est appelee toutes les secondes
-setInterval(updatetime, 1000);
-updatetime();
+// Fonction qui permet de mettre à jour l'heure numérique 
+function updateHorlogeNumerique() {
+    const horloge = document.getElementById("horloge");
+    const now = new Date();
+
+    // Récupérer les heures, minutes et secondes
+    let hours = now.getHours().toString().padStart(2, '0');  // Format HH
+    let minutes = now.getMinutes().toString().padStart(2, '0'); // Format MM
+    let seconds = now.getSeconds().toString().padStart(2, '0'); // Format SS
+
+    // Mettre à jour le texte du paragraphe
+    horloge.textContent = `${hours}H : ${minutes}m : ${seconds}s`;
+}
+// Mettre à jour chaque seconde
+setInterval(updateHorlogeNumerique, 1000);
+setInterval(updateHorlogeAiguille, 1000);
+updateHorlogeAiguille();
+updateHorlogeNumerique();

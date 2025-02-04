@@ -98,10 +98,21 @@ body.dark{
     background: var(--black-color);
     color: var(--white-color);
     padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 22px;
+    border-radius: 10px;
+    font-size: 10px;
     font-weight: 400;
     display: inline-block;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    width: 50%;
+    
+}
+.horloge-numerique {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--black-color);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: var(--white-color);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1), 0 25px 45px rgba(0,0,0,0.1);
+    position: relative;
 }
