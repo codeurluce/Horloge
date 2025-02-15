@@ -22,39 +22,45 @@ modeSwitch.addEventListener("click", () => {
     localStorage.setItem("theme", text ? "Mode Sombre" : "Mode Clair");
 });
 
-// Fonction qui permet de mettre à jour l'heure des aiguilles
-const updateHorlogeAiguille = () => {
-    // Crée un objet Date qui récupère l'heure actuelle
-    let date = new Date();
+// Récupérer toutes les horloges analogiques et numériques
+const horloges = document.querySelectorAll(".container");
 
-    //Recupere le nombre de secondes actuelles (valeur entre 0 et 59)
-    //On divise par 60 pour obtenir une fraction du tour complet (exp: 30 s = 0.5 tours)
-    //Puis on multiplie par 360 pour convertir la valeur en degrés (exp: 0.5 tours * 360 = 180°)
-    const secToDeg = (date.getSeconds() / 60) * 360; // 60 secondes dans une minute
-    const minToDeg = (date.getMinutes() / 60) * 360 + (secToDeg / 60); // Les minutes et secondes influent l'aiguille des minutes
-    const hourToDeg = (date.getHours() % 12) * 30 + (minToDeg / 12); // 12 heures dans une journée (30° par heure) et correction avec les minutes
+// Fonction pour mettre à jour une horloge avec un décalage horaire spécifique
+const updateHorloge = (horlogeContainer, timezoneOffset) => {
+    let date = new Date(new Date().toUTCString()); // Obtenir l'heure UTC
+    date.setHours(date.getUTCHours() + timezoneOffset); // Appliquer le décalage horaire
 
-    // Rotation des aiguilles des secondes, minutes et heures
+    const hourHand = horlogeContainer.querySelector(".hour");
+    const minuteHand = horlogeContainer.querySelector(".minute");
+    const secondHand = horlogeContainer.querySelector(".seconde");
+    const horlogeNumerique = horlogeContainer.querySelector(".horloge-numerique p");
+
+    const secToDeg = (date.getSeconds() / 60) * 360;
+    const minToDeg = (date.getMinutes() / 60) * 360 + (secToDeg / 60);
+    const hourToDeg = (date.getHours() % 12) * 30 + (minToDeg / 12);
+
     secondHand.style.transform = `rotate(${secToDeg}deg)`;
     minuteHand.style.transform = `rotate(${minToDeg}deg)`;
     hourHand.style.transform = `rotate(${hourToDeg}deg)`;
+
+    let hours = date.getHours().toString().padStart(2, '0');
+    let minutes = date.getMinutes().toString().padStart(2, '0');
+    let seconds = date.getSeconds().toString().padStart(2, '0');
+
+    horlogeNumerique.textContent = `${hours}H : ${minutes}m : ${seconds}s`;
 };
 
-// Fonction qui permet de mettre à jour l'heure numérique 
-function updateHorlogeNumerique() {
-    const horloge = document.getElementById("horloge");
-    const now = new Date();
+// Mettre à jour toutes les horloges
+const updateAllHorloges = () => {
+    horloges.forEach(horloge => {
+        const timezoneOffset = parseInt(horloge.getAttribute("data-timezone")); // Lire le décalage horaire
+        updateHorloge(horloge, timezoneOffset);
+    });
+};
 
-    // Récupérer les heures, minutes et secondes
-    let hours = now.getHours().toString().padStart(2, '0');  // Format HH
-    let minutes = now.getMinutes().toString().padStart(2, '0'); // Format MM
-    let seconds = now.getSeconds().toString().padStart(2, '0'); // Format SS
+// Mettre à jour toutes les secondes
+setInterval(updateAllHorloges, 1000);
+updateAllHorloges();
 
-    // Mettre à jour le texte du paragraphe
-    horloge.textContent = `${hours}H : ${minutes}m : ${seconds}s`;
-}
-// Mettre à jour chaque seconde
-setInterval(updateHorlogeNumerique, 1000);
-setInterval(updateHorlogeAiguille, 1000);
-updateHorlogeAiguille();
-updateHorlogeNumerique();
+
+

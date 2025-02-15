@@ -18,8 +18,8 @@
  Il est utilisé comme référence dans le monde entier et ne subit pas de changement pour l'heure d'été.
     Pays associés : Royaume-Uni, Islande, certains pays d'Afrique de l'Ouest. -->
 
-    <div class="container">
-        <p>Dakar (Sénégal)</p>
+    <div class="container"  data-timezone="0">
+        <p class="text-Pays">Dakar (Sénégal)</p>
         <div class="heure">
             <label style="--i: 1"><span>1</span></label>
             <label style="--i: 2"><span>2</span></label>
@@ -33,17 +33,20 @@
             <label style="--i: 10"><span>10</span></label>
             <label style="--i: 11"><span>11</span></label>
             <label style="--i: 12"><span>12</span></label>
+
             <div class="aiguille">
                 <span class="hand hour"></span>
                 <span class="hand minute"></span>
                 <span class="hand seconde"></span>
             </div>
         </div>
+
         <div class="horloge-numerique">
             <p id="horloge">"00H : 00m : 00s "</p>
         </div>
-        <div class="mode-switch"> Mode Sombre </div>
+        
     </div>
+
     <div class="separateur"></div>
     <!-- EST (Heure Standard de l'Est, UTC-5) : ------------------------------------------------------------
 
@@ -51,49 +54,8 @@
     Il est très utilisé dans les affaires internationales.
         Pays associés : États-Unis (New York, Washington D.C.), Canada (Toronto, Montréal). -->
 
-    <div class="container">
-        <p>Paris (France)</p>
-        <div class="heure">
-            <label style="--i: 1"><span>1</span></label>
-            <label style="--i: 2"><span>2</span></label>
-            <label style="--i: 3"><span>3</span></label>
-            <label style="--i: 4"><span>4</span></label>
-            <label style="--i: 5"><span>5</span></label>
-            <label style="--i: 6"><span>6</span></label>
-            <label style="--i: 7"><span>7</span></label>
-            <label style="--i: 8"><span>8</span></label>
-            <label style="--i: 9"><span>9</span></label>
-            <label style="--i: 10"><span>10</span></label>
-            <label style="--i: 11"><span>11</span></label>
-            <label style="--i: 12"><span>12</span></label>
-
-            <div class="aiguille">
-                <span class="hand hour"></span>
-                <span class="hand minute"></span>
-                <span class="hand seconde"></span>
-                            </div>
-        </div>
-        <div class="horloge-numerique">
-            <p id="horloge">"00H : 00m : 00s "</p>
-        </div>
-        <div class="mode-switch"> Mode Sombre </div>
-
-    </div>
-
-    <div class="separateur"></div>
-
-
-
-
-
-
-    <!-- CET (Heure d'Europe Centrale, UTC+1) : ----------------------------------------------------------
-
-    Ce fuseau horaire est utilisé par de nombreux pays européens et est essentiel pour suivre l'heure en Europe centrale.
-        Pays associés : France, Allemagne, Espagne, Italie, Belgique. -->
-
-    <div class="container">
-        <p>New York (Etats Unis)</p>
+    <div class="container"  data-timezone="-5">
+        <p class="text-Pays">Paris (France)</p>
         <div class="heure">
             <label style="--i: 1"><span>1</span></label>
             <label style="--i: 2"><span>2</span></label>
@@ -117,7 +79,42 @@
         <div class="horloge-numerique">
             <p id="horloge">"00H : 00m : 00s "</p>
         </div>
-        <div class="mode-switch"> Mode Sombre </div>
+
+    </div>
+
+    <div class="separateur"></div>
+
+    <!-- CET (Heure d'Europe Centrale, UTC+1) : ----------------------------------------------------------
+
+    Ce fuseau horaire est utilisé par de nombreux pays européens et est essentiel pour suivre l'heure en Europe centrale.
+        Pays associés : France, Allemagne, Espagne, Italie, Belgique. -->
+
+    <div class="container"  data-timezone="1">
+        <p class="text-Pays">New York (Etats Unis)</p>
+        <div class="heure">
+            <label style="--i: 1"><span>1</span></label>
+            <label style="--i: 2"><span>2</span></label>
+            <label style="--i: 3"><span>3</span></label>
+            <label style="--i: 4"><span>4</span></label>
+            <label style="--i: 5"><span>5</span></label>
+            <label style="--i: 6"><span>6</span></label>
+            <label style="--i: 7"><span>7</span></label>
+            <label style="--i: 8"><span>8</span></label>
+            <label style="--i: 9"><span>9</span></label>
+            <label style="--i: 10"><span>10</span></label>
+            <label style="--i: 11"><span>11</span></label>
+            <label style="--i: 12"><span>12</span></label>
+
+            <div class="aiguille">
+                <span class="hand hour"></span>
+                <span class="hand minute"></span>
+                <span class="hand seconde"></span>
+            </div>
+        </div>
+        <div class="horloge-numerique">
+            <p id="horloge">"00H : 00m : 00s "</p>
+        </div>
+
 
     </div>
 
@@ -128,8 +125,8 @@
     Ce fuseau horaire est pertinent pour les affaires avec l'Australie et la région Asie-Pacifique.
         Pays associés : Australie (Sydney, Melbourne), Papouasie-Nouvelle-Guinée.   -->
 
-    <div class="container">
-        <p>Pékin (Chine)</p>
+    <div class="container" data-timezone="10">
+        <p class="text-Pays">Pékin (Chine)</p>
         <div class="heure">
             <label style="--i: 1"><span>1</span></label>
             <label style="--i: 2"><span>2</span></label>
@@ -153,14 +150,12 @@
         <div class="horloge-numerique">
             <p id="horloge">"00H : 00m : 00s "</p>
         </div>
-        <div class="mode-switch"> Mode Sombre </div>
-        
-
     </div>
 
     <div class="separateur"></div>
 
 
+    <div class="mode-switch"> Mode Sombre </div>
 </body>
 
 </html>

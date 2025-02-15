@@ -13,10 +13,12 @@
 }
 body{
     display: flex;
-    min-height: 100vh;
+    height: 100%;
     align-items: center; 
     justify-content: center;
-    background: var(--primary-color)
+    background: var(--primary-color);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 body.dark{
     --primary-color: #242526;
@@ -27,41 +29,41 @@ body.dark{
 .container{
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 20px;
     align-items: center;
     margin: 10px;
+    overflow: hidden;
     
 }
 .container .heure{
     display: flex;
-    height: 400px;
-    width: 400px;
+    height: 280px;
+    width: 280px;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    background : var(--white-color);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.1), 0 25px 45px rgba(0,0,0,0.1);   
+    background : var(--white-color); 
     position: relative;
 }
 .heure label{
     position: absolute;
-    inset: 20px;
+    inset: 5px;
     text-align: center;
     transform: rotate(calc(var(--i) * (360deg / 12)));
 }
 .heure label span{
     display: inline-block; 
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--black-color);
     transform: rotate(calc(var(--i) * (-360deg / 12)));
 }
 
-.separateur {
+ .separateur {
     width: 2px;
-    height: 600px;
+    height: 420px;
     background-color: black;
-}
+} 
 .container .aiguille{
     position: absolute;
     height: 10px;
@@ -83,8 +85,8 @@ body.dark{
 }
 .aiguille .hand{
     position: absolute;
-    height: 130px;
-    width: 4px;
+    height: 120px;
+    width: 2px;
     bottom: 0;
     transform-origin: bottom;
     border-radius: 25px;
@@ -92,28 +94,18 @@ body.dark{
 } 
 
 .hand.minute{
-    height: 120px;
+    height: 102px;
     width: 5px;
     background: var(--black-color);
 }
 .hand.hour{
-    height: 100px;
+    height: 90px;
     width: 8px;
     background: var(--black-color);
 }
-.mode-switch{
-    background: var(--black-color);
-    color: var(--white-color);
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 10px;
-    font-weight: 400;
-    display: inline-block;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    
-}
+
 .horloge-numerique {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--black-color);
     display: inline-block;
@@ -123,4 +115,32 @@ body.dark{
     box-shadow: 0 15px 25px rgba(0,0,0,0.1), 0 25px 45px rgba(0,0,0,0.1);
     position: relative;
     text-align: center;
+}
+.text-Pays{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--black-color);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: var(--white-color);
+    position: relative;
+    text-align: center;
+}
+.mode-switch{
+        background: var(--black-color);
+        color: var(--white-color);
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        position: fixed; /* Fixé en bas */
+        margin-top: 520px; /* Décalage vers le haut */
+        left: 50%; /* Centrage horizontal */
+        transform: translateX(-50%); /* Ajuste le centrage */
+        cursor: pointer;
+        z-index: 1000; /* Pour qu'il soit au-dessus des horloges */
+    
+    
 }
