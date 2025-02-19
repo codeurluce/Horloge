@@ -47,7 +47,8 @@ const updateHorloge = (horlogeContainer, timezoneOffset) => {
     let minutes = date.getMinutes().toString().padStart(2, '0');
     let seconds = date.getSeconds().toString().padStart(2, '0');
 
-    horlogeNumerique.textContent = `${hours}H : ${minutes}m : ${seconds}s`;
+    horlogeNumerique.textContent = `${hours} : ${minutes} : ${seconds}`;
+    // horlogeNumerique.textContent =`${hours}H : ${minutes}m : ${seconds}s`;
 };
 
 // Mettre à jour toutes les horloges
@@ -61,6 +62,3 @@ const updateAllHorloges = () => {
 // Mettre à jour toutes les secondes
 setInterval(updateAllHorloges, 1000);
 updateAllHorloges();
-
-
-
