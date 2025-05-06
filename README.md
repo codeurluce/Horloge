@@ -1,6 +1,6 @@
 # 🕒 Horloge Numérique Dynamique
 
-Ce projet est une **horloge numérique dynamique** développée avec **HTML**, **CSS** et **JavaScript**. Elle affiche l'heure en temps réel au format `HHh : MMm : SSs` et se met à jour automatiquement chaque seconde.
+Ce projet est une **horloge numérique dynamique** développée avec **HTML**, **CSS** et **JavaScript**. Elle affiche l'heure en temps réel de **4 villes differentes**, au format `HHh : MMm : SSs` et se met à jour automatiquement chaque seconde.
 
 ---
 
