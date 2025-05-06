@@ -4,6 +4,12 @@ Ce projet est une **horloge numérique dynamique** développée avec **HTML**, *
 
 ---
 
+## 📸 Aperçu
+
+![Aperçu du site](image1.png)
+![Aperçu du site](image2.png)
+---
+
 ## ✨ Fonctionnalités
 
 * Affichage **automatique** de l'heure actuelle en temps réel
